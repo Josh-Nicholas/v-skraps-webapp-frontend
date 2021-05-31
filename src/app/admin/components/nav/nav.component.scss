@@ -1,0 +1,51 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+
+// ============ Custom CSS =========================================
+.new-admin-toolbar, .new-admin-sidenav {
+  background-color: #1e2432;
+  color: #ecf0f1;
+}
+.new-admin-toolbar.admin-panel-title {
+  text-align: center;
+  // margin-left: 40px;
+}
+
+.new-admin-sidenav-content {
+  background-color: #2d3542;
+}
+
+.new-admin-nav-title, .new-admin-nav-icon {
+  color: #ecf0f1;
+}
+
+a {
+  color: #676e80 !important;
+}
+
+span {
+  margin-right: 15px;
+}
+
+.my-account {
+  width: 100%;
+  .more-button.mat-icon-button {
+    float: right;
+    margin-right: 50px;
+  }
+}
+.skraps-logo {
+  width: 30px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+}
+.mat-list-base {
+  padding-top: 0px !important;
+}

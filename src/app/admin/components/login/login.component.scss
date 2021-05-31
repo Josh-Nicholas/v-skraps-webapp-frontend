@@ -1,0 +1,14 @@
+.form__title {
+  text-align: center;
+  line-height: normal;
+  color: #ecf0f1;
+}
+:host {
+  display: block;
+  width: 100%;
+}
+
+.mat-raised-button.mat-primary {
+  color: #ecf0f1 !important;
+  background-color: #3699fe !important;
+}

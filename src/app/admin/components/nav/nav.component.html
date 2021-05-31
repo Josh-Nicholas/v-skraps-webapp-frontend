@@ -1,0 +1,49 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav new-admin-sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar class="new-admin-toolbar admin-panel-title">
+      <img class="skraps-logo bitcoin-icon" [src]="['/assets/images/skraps-favicon.png']" alt="">
+      SKRAPS
+    </mat-toolbar>
+    <mat-nav-list>
+      <!--<a mat-list-item [routerLink]="['/admin', 'dashboard']" routerLinkActive="router-link-active">Dashboard</a>-->
+      <a mat-list-item [routerLink]="['/admin', 'users']" (click)="setTopBarTitle('Users')" routerLinkActive="router-link-active"><span class="material-icons">supervisor_account</span>Users</a>
+      <a mat-list-item [routerLink]="['/admin', 'selling']" (click)="setTopBarTitle('Selling Requests')" routerLinkActive="router-link-active"><span class="material-icons">monetization_on</span>Selling Requests</a>
+      <a mat-list-item [routerLink]="['/admin', 'crypto-distributions']" (click)="setTopBarTitle('Crypto Distribution')" routerLinkActive="router-link-active"><span class="material-icons">web</span>Crypto Distribution</a>
+      <a mat-list-item [routerLink]="['/admin', 'crypto-pollings']" (click)="setTopBarTitle('Crypto Pooling')" routerLinkActive="router-link-active"><span class="material-icons">web_asset</span>Crypto Pooling</a>
+      <a mat-list-item [routerLink]="['/admin', 'news']" (click)="setTopBarTitle('News')" routerLinkActive="router-link-active"><span class="material-icons">wallpaper</span>News</a>
+      <a mat-list-item [routerLink]="['/admin', 'quiz']" (click)="setTopBarTitle('Quiz')" routerLinkActive="router-link-active"><span class="material-icons">view_quilt</span>Quiz</a>
+      <a mat-list-item [routerLink]="['/admin', 'ico']" (click)="setTopBarTitle('Ico')" routerLinkActive="router-link-active"><span class="material-icons">playlist_add</span>ICO</a>
+      <a mat-list-item [routerLink]="['/admin', 'coins']" (click)="setTopBarTitle('Coins')" routerLinkActive="router-link-active"><span class="material-icons">money</span>Coins</a>
+      <a mat-list-item [routerLink]="['/admin', 'portfolios']" (click)="setTopBarTitle('Portfolios')" routerLinkActive="router-link-active"><span class="material-icons">picture_in_picture</span>Portfolios</a>
+      <a mat-list-item [routerLink]="['/admin', 'scheduler-settings']" (click)="setTopBarTitle('Scheduler Settings')" routerLinkActive="router-link-active"><span class="material-icons">settings</span>Scheduler Settings</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="new-admin-sidenav-content">
+    <mat-toolbar class="new-admin-toolbar">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span id="new-admin-nav-title" class="new-admin-nav-title">{{currentPageTitle}}</span>
+      
+      <!-- <button type="button" aria-label="Logout" mat-icon-button (click)="OnLogout.emit()" [ngStyle]="{position: 'absolute', right: '20px'}">
+        <mat-icon class="new-admin-nav-icon" fontSet="skraps-icons" fontIcon="icon-arrow"></mat-icon>
+        <span class="new-admin-nav-icon" fontSet="skraps-icons">My Account</span>
+      </button> -->
+      
+      <div class="actions my-account">
+        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+          <!-- <mat-icon>more_vert</mat-icon> -->
+          <span class="" fontSet="skraps-icons">My Account</span>
+
+        </button>
+        <mat-menu class="mat-menu-background" #menu="matMenu" xPosition="before">
+          <button class="accept-delete" mat-menu-item>Reset Password</button>
+          <button class="accept-button" mat-menu-item (click)="OnLogout.emit()">Log Out</button>
+        </mat-menu>
+      </div>
+
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
